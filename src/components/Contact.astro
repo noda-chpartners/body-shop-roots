@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import UiIcon from './UiIcon.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="contact section" aria-labelledby="contact-title">
+  <div class="contact__media">
+    <Image
+      class="contact__image"
+      src={siteContent.gallery.items[0].image}
+      alt=""
+      widths={[800, 1200, 1800]}
+      sizes="100vw"
+      format="webp"
+    />
+  </div>
+  <div class="contact__shade"></div>
+  <div class="contact__inner container">
+    <p class="contact__label" data-reveal>{siteContent.contact.label}</p>
+    <h2 class="contact__title" id="contact-title" data-reveal>{siteContent.contact.title}</h2>
+    <p class="contact__body" data-reveal>{siteContent.contact.body}</p>
+    <a class="phone-cta" href={siteContent.contact.phoneHref} data-reveal>
+      <span class="phone-cta__icon"><UiIcon name="phone" size={28} /></span>
+      <span class="phone-cta__content">
+        <span class="phone-cta__label">PHONE</span>
+        <span class="phone-cta__number">{siteContent.contact.phone}</span>
+      </span>
+      <span class="phone-cta__arrow"><UiIcon name="arrow" size={24} /></span>
+    </a>
+    <p class="contact__hours" data-reveal>{siteContent.contact.hours}</p>
+  </div>
+</section>

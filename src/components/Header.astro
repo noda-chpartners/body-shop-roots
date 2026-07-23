@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import { siteContent } from '@/content/siteContent';
+---
+
+<header class="site-header" data-header>
+  <div class="site-header__inner container">
+    <a class="site-header__brand" href="#top" aria-label={`${siteContent.brand.name} トップへ`}>
+      <Image
+        class="site-header__logo"
+        src={siteContent.brand.logo}
+        alt=""
+        width={58}
+        height={58}
+        loading="eager"
+      />
+      <span class="site-header__brand-text">{siteContent.brand.name}</span>
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="メニューを開く"
+      aria-controls="global-navigation"
+      aria-expanded="false"
+      data-menu-button
+    >
+      <span class="menu-button__line"></span>
+      <span class="menu-button__line"></span>
+      <span class="menu-button__text">MENU</span>
+    </button>
+
+    <nav class="global-nav" id="global-navigation" aria-label="メインナビゲーション" data-navigation>
+      <ul class="global-nav__list">
+        {
+          siteContent.navigation.map((item) => (
+            <li class="global-nav__item">
+              <a class="global-nav__link" href={item.href} data-nav-link>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="global-nav__item global-nav__item--contact">
+          <a class="global-nav__contact" href={siteContent.contact.phoneHref}>
+            <span class="global-nav__contact-label">CALL US</span>
+            <span class="global-nav__contact-number">{siteContent.contact.phone}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

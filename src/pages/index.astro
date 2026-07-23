@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Hero from '@/components/Hero.astro';
+import About from '@/components/About.astro';
+import Services from '@/components/Services.astro';
+import Craft from '@/components/Craft.astro';
+import VisualGallery from '@/components/VisualGallery.astro';
+import ShopInformation from '@/components/ShopInformation.astro';
+import Contact from '@/components/Contact.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+  <main class="site-main">
+    <Hero />
+    <About />
+    <Services />
+    <Craft />
+    <VisualGallery />
+    <ShopInformation />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '@/scripts/main';
+</script>

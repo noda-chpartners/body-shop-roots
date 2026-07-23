@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import UiIcon from './UiIcon.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="shop section" id="information" aria-labelledby="information-title">
+  <div class="shop__inner container">
+    <SectionHeading label={siteContent.shop.label} title={siteContent.shop.title} id="information-title" />
+    <div class="shop__grid">
+      <dl class="shop-details" data-reveal>
+        {
+          siteContent.shop.details.map((item) => (
+            <div class="shop-details__row">
+              <dt class="shop-details__term">{item.term}</dt>
+              <dd class="shop-details__description">
+                {'href' in item ? (
+                  <a class="shop-details__link" href={item.href}>{item.description}</a>
+                ) : (
+                  item.description
+                )}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="access-card" id="access" data-reveal-image>
+        <div class="access-card__media">
+          <Image
+            class="access-card__image"
+            src={siteContent.access.image}
+            alt={siteContent.access.imageAlt}
+            widths={[560, 840, 1120]}
+            sizes="(max-width: 767px) 100vw, 48vw"
+            format="webp"
+          />
+        </div>
+        <div class="access-card__copy">
+          <p class="access-card__label">{siteContent.access.label}</p>
+          <h2 class="access-card__title">{siteContent.access.title}</h2>
+          <div class="access-card__row">
+            <UiIcon name="map" size={21} />
+            <p class="access-card__address">
+              <span class="access-card__postal">{siteContent.access.postalCode}</span>
+              <span class="access-card__address-line">{siteContent.access.address}</span>
+            </p>
+          </div>
+          <div class="access-card__row">
+            <UiIcon name="clock" size={21} />
+            <p class="access-card__station">{siteContent.access.station}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

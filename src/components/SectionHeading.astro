@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+  title: string | readonly string[];
+  tone?: 'dark' | 'light';
+  id?: string;
+}
+
+const { label, title, tone = 'dark', id } = Astro.props;
+---
+
+<div class:list={['section-heading', `section-heading--${tone}`]} data-reveal>
+  <p class="section-heading__label">{label}</p>
+  <h2 class="section-heading__title" id={id}>
+    {
+      Array.isArray(title)
+        ? title.map((line) => <span class="section-heading__title-line">{line}</span>)
+        : title
+    }
+  </h2>
+</div>

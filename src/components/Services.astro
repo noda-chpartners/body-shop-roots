@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import UiIcon from './UiIcon.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="services section" id="services" aria-labelledby="services-title">
+  <div class="services__inner container">
+    <SectionHeading
+      label={siteContent.services.label}
+      title={siteContent.services.title}
+      tone="light"
+      id="services-title"
+    />
+    <div class="services__list">
+      {
+        siteContent.services.items.map((service) => (
+          <article class="service-card" data-service-card>
+            <figure class="service-card__media">
+              <Image
+                class="service-card__image"
+                src={service.image}
+                alt={service.imageAlt}
+                widths={[520, 760, 1040]}
+                sizes="(max-width: 767px) 100vw, 50vw"
+                format="webp"
+              />
+              <figcaption class="image-credit image-credit--overlay">{service.imageCredit}</figcaption>
+            </figure>
+            <div class="service-card__overlay"></div>
+            <div class="service-card__top">
+              <span class="service-card__number">{service.number}</span>
+              <span class="service-card__icon">
+                <UiIcon name={service.icon} size={28} />
+              </span>
+            </div>
+            <div class="service-card__copy">
+              <p class="service-card__english">{service.english}</p>
+              <h3 class="service-card__title">{service.title}</h3>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

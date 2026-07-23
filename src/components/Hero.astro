@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__media" data-hero-media>
+    <Image
+      class="hero__image"
+      src={siteContent.hero.image}
+      alt={siteContent.hero.imageAlt}
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="hero__shade"></div>
+  <div class="hero__content container">
+    <p class="hero__eyebrow" data-hero-copy>{siteContent.hero.eyebrow}</p>
+    <h1 class="hero__title" id="hero-title" data-hero-copy>
+      {
+        siteContent.hero.title.map((line) => (
+          <span class="hero__title-line">{line}</span>
+        ))
+      }
+    </h1>
+    <p class="hero__lead" data-hero-copy>{siteContent.hero.lead}</p>
+    <p class="hero__note" data-hero-copy>{siteContent.hero.note}</p>
+  </div>
+  <div class="hero__service-rail" aria-label="事業内容">
+    <div class="hero__service-rail-inner container">
+      {
+        siteContent.serviceTicker.map((service, index) => (
+          <span class="hero__service-item">
+            <span class="hero__service-number">0{index + 1}</span>
+            <span class="hero__service-name">{service}</span>
+          </span>
+        ))
+      }
+    </div>
+  </div>
+  <a class="hero__scroll" href="#about" aria-label="私たちについてへスクロール">
+    <span class="hero__scroll-text">SCROLL</span>
+    <span class="hero__scroll-line"></span>
+  </a>
+</section>

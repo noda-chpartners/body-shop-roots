@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from './SectionHeading.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="about section" id="about" aria-labelledby="about-title">
+  <div class="about__inner container">
+    <div class="about__copy">
+      <SectionHeading label={siteContent.about.label} title={siteContent.about.title} id="about-title" />
+      <p class="about__body" data-reveal>{siteContent.about.body}</p>
+      <p class="about__signature" data-reveal>{siteContent.brand.name}</p>
+    </div>
+    <div class="about__visuals">
+      <figure class="about__figure about__figure--primary" data-reveal-image>
+        <Image
+          class="about__image about__image--primary"
+          src={siteContent.about.primaryImage}
+          alt={siteContent.about.primaryImageAlt}
+          widths={[540, 840, 1120]}
+          sizes="(max-width: 767px) 84vw, 42vw"
+          format="webp"
+        />
+        <figcaption class="image-credit">{siteContent.about.primaryImageCredit}</figcaption>
+      </figure>
+      <figure class="about__figure about__figure--secondary" data-reveal-image>
+        <Image
+          class="about__image about__image--secondary"
+          src={siteContent.about.secondaryImage}
+          alt={siteContent.about.secondaryImageAlt}
+          widths={[360, 560, 760]}
+          sizes="(max-width: 767px) 46vw, 20vw"
+          format="webp"
+        />
+        <figcaption class="image-credit">{siteContent.about.secondaryImageCredit}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

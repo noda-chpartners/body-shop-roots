@@ -1,0 +1,95 @@
+:root {
+  --color-navy: #101c3d;
+  --color-navy-deep: #08122d;
+  --color-yellow: #ffeb3f;
+  --color-yellow-soft: #fff48f;
+  --color-ink: #121725;
+  --color-gray: #6f7380;
+  --color-line: #d9dce4;
+  --color-surface: #f4f3ef;
+  --color-white: #ffffff;
+  --font-sans: "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-serif: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --container: 1180px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --section-space: clamp(88px, 11vw, 160px);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-html {
+  scroll-behavior: smooth;
+  background: var(--color-surface);
+}
+
+.site-body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: clip;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-body.is-menu-open {
+  overflow: hidden;
+}
+
+.container {
+  width: min(calc(100% - (var(--gutter) * 2)), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-space);
+}
+
+.site-main {
+  display: block;
+}
+
+.ui-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.brand-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.image-credit {
+  margin: 8px 0 0;
+  color: var(--color-gray);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.image-credit--overlay {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  z-index: 2;
+  margin: 0;
+  color: rgb(255 255 255 / 72%);
+  text-shadow: 0 1px 6px rgb(0 0 0 / 60%);
+}
+
+::selection {
+  color: var(--color-navy-deep);
+  background: var(--color-yellow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-html {
+    scroll-behavior: auto;
+  }
+}

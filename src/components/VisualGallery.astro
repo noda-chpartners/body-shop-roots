@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="visual-gallery" aria-labelledby="gallery-title">
+  <div class="visual-gallery__heading container">
+    <p class="visual-gallery__label">{siteContent.gallery.label}</p>
+    <h2 class="visual-gallery__title" id="gallery-title">{siteContent.gallery.title}</h2>
+  </div>
+  <div class="visual-gallery__grid">
+    {
+      siteContent.gallery.items.map((item, index) => (
+        <figure
+          class:list={['visual-gallery__item', `visual-gallery__item--${index + 1}`]}
+          data-reveal-image
+        >
+          <Image
+            class="visual-gallery__image"
+            src={item.image}
+            alt={item.imageAlt}
+            widths={[480, 760, 1080]}
+            sizes="(max-width: 767px) 82vw, 34vw"
+            format="webp"
+          />
+          <figcaption class="image-credit image-credit--overlay">{item.imageCredit}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>

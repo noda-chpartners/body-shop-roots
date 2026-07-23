@@ -1,0 +1,36 @@
+---
+import {
+  ArrowUpRight,
+  CarFront,
+  Clock3,
+  KeyRound,
+  MapPin,
+  PaintBucket,
+  Phone,
+  ShieldCheck,
+} from '@lucide/astro';
+import type { IconName } from '@/content/siteContent';
+
+interface Props {
+  name: IconName;
+  size?: number;
+  strokeWidth?: number;
+}
+
+const { name, size = 24, strokeWidth = 1.7 } = Astro.props;
+
+const icons = {
+  arrow: ArrowUpRight,
+  car: CarFront,
+  clock: Clock3,
+  key: KeyRound,
+  map: MapPin,
+  paint: PaintBucket,
+  phone: Phone,
+  shield: ShieldCheck,
+};
+
+const Icon = icons[name];
+---
+
+<Icon class="ui-icon" size={size} stroke-width={strokeWidth} aria-hidden="true" />

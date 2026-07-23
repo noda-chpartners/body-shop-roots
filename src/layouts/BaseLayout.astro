@@ -1,0 +1,36 @@
+---
+import '@/styles/global.css';
+import '@/styles/main.scss';
+import { siteContent } from '@/content/siteContent';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = siteContent.meta.title,
+  description = siteContent.meta.description,
+} = Astro.props;
+---
+
+<!doctype html>
+<html class="site-html" lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101c3d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/ogp.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{title}</title>
+  </head>
+  <body class="site-body">
+    <slot />
+  </body>
+</html>

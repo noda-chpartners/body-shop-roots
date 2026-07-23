@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import UiIcon from './UiIcon.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="craft" aria-labelledby="craft-title">
+  <figure class="craft__media" data-reveal-image>
+    <Image
+      class="craft__image"
+      src={siteContent.craft.image}
+      alt={siteContent.craft.imageAlt}
+      widths={[720, 1100, 1600]}
+      sizes="(max-width: 767px) 100vw, 58vw"
+      format="webp"
+    />
+    <figcaption class="image-credit image-credit--overlay">{siteContent.craft.imageCredit}</figcaption>
+  </figure>
+  <div class="craft__panel">
+    <p class="craft__label" data-reveal>{siteContent.craft.label}</p>
+    <h2 class="craft__title" id="craft-title" data-reveal>{siteContent.craft.title}</h2>
+    <p class="craft__body" data-reveal>{siteContent.craft.body}</p>
+    <a class="text-link" href={siteContent.contact.phoneHref} data-reveal>
+      <span class="text-link__label">電話で相談する</span>
+      <UiIcon name="arrow" size={19} />
+    </a>
+  </div>
+</section>
