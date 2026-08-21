@@ -124,6 +124,10 @@
   white-space: nowrap;
 }
 
+.global-nav__item--socials {
+  display: none;
+}
+
 .menu-button {
   position: relative;
   z-index: 52;
@@ -206,6 +210,8 @@
       linear-gradient(135deg, rgb(8 18 45 / 98%), rgb(16 28 61 / 98%)),
       var(--color-navy);
     opacity: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     transition:
       visibility 0.35s,
       opacity 0.35s ease;
@@ -237,7 +243,7 @@
       opacity 0.35s ease,
       transform 0.35s ease;
 
-    @for $i from 1 through 5 {
+    @for $i from 1 through 6 {
       &:nth-child(#{$i}) {
         transition-delay: #{0.04s * $i};
       }
@@ -266,10 +272,79 @@
     margin: 0;
     padding: 18px 20px;
   }
+
+  .global-nav__item--socials {
+    display: block;
+    margin-top: 14px;
+    border: 0;
+  }
+
+  .global-nav__socials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+
+  .global-nav__social-link {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 12px;
+    color: var(--color-white);
+    background: rgb(255 255 255 / 7%);
+    border: 1px solid rgb(255 255 255 / 24%);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-yellow);
+      border-color: var(--color-yellow);
+    }
+  }
+
+  .global-nav__social-label {
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 560px) {
   .site-header__brand-text {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 1120px) and (max-height: 640px) {
+  .global-nav {
+    padding-top: 78px;
+    padding-bottom: 0;
+  }
+
+  .global-nav__link {
+    padding-block: 10px;
+    font-size: 14px;
+  }
+
+  .global-nav__item--contact {
+    margin-top: 10px;
+  }
+
+  .global-nav__contact {
+    padding-block: 10px;
+  }
+
+  .global-nav__item--socials {
+    margin-top: 10px;
+  }
+
+  .global-nav__social-link {
+    padding-block: 10px;
   }
 }

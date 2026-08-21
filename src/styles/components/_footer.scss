@@ -42,6 +42,21 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--color-white);
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    color: var(--color-yellow);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 6px;
+  }
 }
 
 .social-account__copy {

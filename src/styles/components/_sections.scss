@@ -657,6 +657,91 @@
   letter-spacing: 0.08em;
 }
 
+.contact-socials {
+  width: min(100%, 600px);
+  margin: 30px auto 0;
+}
+
+.contact-socials__label {
+  margin: 0 0 10px;
+  color: rgb(255 255 255 / 58%);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.contact-socials__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.contact-social {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 17px;
+  color: var(--color-white);
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 26%);
+  text-align: left;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    color: var(--color-yellow);
+    background: rgb(255 255 255 / 12%);
+    border-color: var(--color-yellow);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 3px;
+  }
+}
+
+.contact-social__icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.contact-social__copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.contact-social__name {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.contact-social__handle {
+  overflow: hidden;
+  color: rgb(255 255 255 / 66%);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-social__arrow {
+  flex: 0 0 auto;
+}
+
 @media (max-width: 1080px) {
   .about__inner {
     grid-template-columns: 1fr;
@@ -870,6 +955,16 @@
 
   .phone-cta__arrow {
     margin-left: 8px;
+  }
+
+  .contact-socials {
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-socials__list {
+    grid-template-columns: 1fr;
   }
 }
 

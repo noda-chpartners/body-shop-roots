@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import BrandIcon from './BrandIcon.astro';
 import { siteContent } from '@/content/siteContent';
 ---
 
@@ -46,6 +47,25 @@ import { siteContent } from '@/content/siteContent';
             <span class="global-nav__contact-label">CALL US</span>
             <span class="global-nav__contact-number">{siteContent.contact.phone}</span>
           </a>
+        </li>
+        <li class="global-nav__item global-nav__item--socials">
+          <div class="global-nav__socials" aria-label="公式SNS">
+            {
+              siteContent.social.map((item) => (
+                <a
+                  class="global-nav__social-link"
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.label}を開く（外部サイト）`}
+                  data-nav-link
+                >
+                  <BrandIcon name={item.icon} size={20} />
+                  <span class="global-nav__social-label">{item.label}</span>
+                </a>
+              ))
+            }
+          </div>
         </li>
       </ul>
     </nav>

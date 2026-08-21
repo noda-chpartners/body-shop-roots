@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import BrandIcon from './BrandIcon.astro';
 import UiIcon from './UiIcon.astro';
 import { siteContent } from '@/content/siteContent';
 ---
@@ -29,5 +30,30 @@ import { siteContent } from '@/content/siteContent';
       <span class="phone-cta__arrow"><UiIcon name="arrow" size={24} /></span>
     </a>
     <p class="contact__hours" data-reveal>{siteContent.contact.hours}</p>
+    <div class="contact-socials" aria-label="公式SNS" data-reveal>
+      <p class="contact-socials__label">OFFICIAL SOCIAL</p>
+      <div class="contact-socials__list">
+        {
+          siteContent.social.map((item) => (
+            <a
+              class="contact-social"
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${item.label}を開く（外部サイト）`}
+            >
+              <span class="contact-social__icon">
+                <BrandIcon name={item.icon} size={22} />
+              </span>
+              <span class="contact-social__copy">
+                <span class="contact-social__name">{item.label}</span>
+                <span class="contact-social__handle">{item.handle}</span>
+              </span>
+              <span class="contact-social__arrow"><UiIcon name="arrow" size={18} /></span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </section>
