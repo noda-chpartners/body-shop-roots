@@ -5,7 +5,7 @@ import UiIcon from './UiIcon.astro';
 import { siteContent } from '@/content/siteContent';
 ---
 
-<section class="contact section" aria-labelledby="contact-title">
+<section class="contact section" id="contact" aria-labelledby="contact-title">
   <div class="contact__media">
     <Image
       class="contact__image"
@@ -36,7 +36,7 @@ import { siteContent } from '@/content/siteContent';
         {
           siteContent.social.map((item) => (
             <a
-              class="contact-social"
+              class:list={['contact-social', `contact-social--${item.icon}`]}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"

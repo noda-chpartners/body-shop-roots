@@ -20,13 +20,15 @@ import { siteContent } from '@/content/siteContent';
       {
         siteContent.social.map((item) => (
           <a
-            class="social-account"
+            class:list={['social-account', `social-account--${item.icon}`]}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${item.label}を開く（外部サイト）`}
           >
-            <BrandIcon name={item.icon} size={21} />
+            <span class="social-account__icon">
+              <BrandIcon name={item.icon} size={21} />
+            </span>
             <div class="social-account__copy">
               <span class="social-account__label">{item.label}</span>
               <span class="social-account__handle">{item.handle}</span>

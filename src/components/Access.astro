@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import UiIcon from './UiIcon.astro';
+import { siteContent } from '@/content/siteContent';
+---
+
+<section class="access section" id="access" aria-labelledby="access-title">
+  <div class="access__inner container">
+    <div class="access-card" data-reveal-image>
+      <a
+        class="access-card__media"
+        href={siteContent.access.mapHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={siteContent.access.mapLabel}
+      >
+        <Image
+          class="access-card__image"
+          src={siteContent.access.image}
+          alt={siteContent.access.imageAlt}
+          widths={[560, 840, 1120]}
+          sizes="(max-width: 767px) 100vw, 72vw"
+          format="webp"
+        />
+        <span class="access-card__map-hint">
+          <UiIcon name="map" size={18} />
+          <span>{siteContent.access.mapLabel}</span>
+        </span>
+      </a>
+      <div class="access-card__copy">
+        <p class="access-card__label">{siteContent.access.label}</p>
+        <h2 class="access-card__title" id="access-title">{siteContent.access.title}</h2>
+        <div class="access-card__row">
+          <UiIcon name="map" size={21} />
+          <p class="access-card__address">
+            <span class="access-card__postal">{siteContent.access.postalCode}</span>
+            <span class="access-card__address-line">{siteContent.access.address}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

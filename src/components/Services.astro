@@ -13,6 +13,7 @@ import { siteContent } from '@/content/siteContent';
       tone="light"
       id="services-title"
     />
+    <p class="services__lead" data-reveal>{siteContent.services.lead}</p>
     <div class="services__list">
       {
         siteContent.services.items.map((service) => (
@@ -37,6 +38,7 @@ import { siteContent } from '@/content/siteContent';
             <div class="service-card__copy">
               <p class="service-card__english">{service.english}</p>
               <h3 class="service-card__title">{service.title}</h3>
+              <p class="service-card__body">{service.body}</p>
             </div>
           </article>
         ))

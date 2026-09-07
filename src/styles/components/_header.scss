@@ -300,8 +300,35 @@
 
     &:hover,
     &:focus-visible {
-      color: var(--color-yellow);
-      border-color: var(--color-yellow);
+      color: var(--color-white);
+    }
+  }
+
+  .global-nav__social-link--instagram {
+    border-color: rgb(228 64 95 / 50%);
+
+    .brand-icon {
+      color: var(--color-instagram);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgb(228 64 95 / 16%);
+      border-color: var(--color-instagram);
+    }
+  }
+
+  .global-nav__social-link--line {
+    border-color: rgb(6 199 85 / 50%);
+
+    .brand-icon {
+      color: var(--color-line-brand);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgb(6 199 85 / 16%);
+      border-color: var(--color-line-brand);
     }
   }
 

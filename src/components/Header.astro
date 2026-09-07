@@ -53,7 +53,7 @@ import { siteContent } from '@/content/siteContent';
             {
               siteContent.social.map((item) => (
                 <a
-                  class="global-nav__social-link"
+                  class:list={['global-nav__social-link', `global-nav__social-link--${item.icon}`]}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"

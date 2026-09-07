@@ -49,13 +49,43 @@
     transform 0.25s ease;
 
   &:hover {
-    color: var(--color-yellow);
     transform: translateY(-2px);
   }
 
   &:focus-visible {
     outline: 2px solid var(--color-yellow);
     outline-offset: 6px;
+  }
+}
+
+.social-account__icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  place-items: center;
+}
+
+.social-account--instagram {
+  .social-account__icon {
+    color: var(--color-white);
+    background: linear-gradient(135deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
+  }
+
+  &:hover {
+    color: #ff8fb0;
+  }
+}
+
+.social-account--line {
+  .social-account__icon {
+    color: var(--color-white);
+    background: var(--color-line-brand);
+  }
+
+  &:hover {
+    color: #7dffb0;
   }
 }
 
