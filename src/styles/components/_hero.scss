@@ -188,6 +188,11 @@
     font-size: clamp(48px, 7vw, 76px);
   }
 
+  .hero__image {
+    object-position: right 58%;
+    transform: none;
+  }
+
   .hero__service-item {
     gap: 10px;
     padding-inline: 16px;
@@ -215,7 +220,7 @@
   }
 
   .hero__image {
-    object-position: 57% center;
+    object-position: right 54%;
   }
 
   .hero__eyebrow {

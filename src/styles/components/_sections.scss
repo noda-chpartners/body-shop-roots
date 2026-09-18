@@ -537,6 +537,18 @@
   transition: transform 0.7s ease;
 }
 
+@media (max-width: 1120px) {
+  .access-card__image {
+    object-position: right 58%;
+  }
+}
+
+@media (max-width: 767px) {
+  .access-card__image {
+    object-position: right 54%;
+  }
+}
+
 .access-card__map-hint {
   position: absolute;
   right: 16px;
