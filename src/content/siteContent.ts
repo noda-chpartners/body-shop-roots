@@ -9,9 +9,10 @@ import towingImage from '@/assets/images/service-towing-v2.jpg';
 
 export const siteContent = {
   meta: {
-    title: 'Body shop Roots | 埼玉県桶川市のボディショップ',
+    title: '桶川市の鈑金塗装・整備 | Body shop Roots',
     description:
-      '埼玉県桶川市のBody shop Roots。鈑金塗装・整備・車両販売・保険・レンタカー・レッカーまで、クルマの相談をひとつの窓口でサポートします。',
+      '埼玉県桶川市上日出谷のボディショップ Body shop Roots。鈑金塗装、車検・整備、車両販売、自動車保険、レンタカー、レッカーに対応。営業時間10:00-19:00、定休日は日曜・祝日。',
+    siteName: 'Body shop Roots',
   },
   brand: {
     name: 'Body shop Roots',

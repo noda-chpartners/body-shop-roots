@@ -12,6 +12,59 @@ const {
   title = siteContent.meta.title,
   description = siteContent.meta.description,
 } = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://body-shop-roots.pages.dev');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL('/ogp.png', siteUrl).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': ['AutoBodyShop', 'AutoRepair'],
+  name: siteContent.brand.name,
+  description,
+  url: canonicalUrl,
+  image: ogImageUrl,
+  telephone: '+81-48-662-9477',
+  address: {
+    '@type': 'PostalAddress',
+    postalCode: '363-0026',
+    addressRegion: '埼玉県',
+    addressLocality: '桶川市',
+    streetAddress: '上日出谷791-1',
+    addressCountry: 'JP',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 36.0110202,
+    longitude: 139.5433831,
+  },
+  hasMap: siteContent.access.mapHref,
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '10:00',
+    closes: '19:00',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: '桶川市',
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: '埼玉県',
+    },
+  },
+  sameAs: siteContent.social.map((item) => item.href),
+  makesOffer: siteContent.services.items.map((item) => ({
+    '@type': 'Offer',
+    itemOffered: {
+      '@type': 'Service',
+      name: item.title,
+      description: item.body,
+    },
+  })),
+};
+
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -20,14 +73,24 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="theme-color" content="#101c3d" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteContent.meta.siteName} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/ogp.png" />
-    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={siteContent.hero.imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="google-site-verification" content="W6X3cwCqNwAUejsnK3WonJ1538dIruj4tj0PKa2gu5U" />
+    <script type="application/ld+json" set:html={structuredDataJson} />
     <title>{title}</title>
   </head>
   <body class="site-body">
